@@ -196,39 +196,38 @@ var projects = {
 	]
 }
 
-var bioDisplay = function () 
+var displayBio = function () 
 {
+	bio.name = HTMLheaderName.replace("%data%",bio.name);
+	bio.role = HTMLheaderRole.replace("%data%",bio.role);
+	bio.mobile = HTMLmobile.replace("%data%",bio.mobile);
+	bio.email = HTMLemail.replace("%data%",bio.email);
+	bio.github = HTMLgithub.replace("%data%",bio.github);
+	bio.location = HTMLlocation.replace("%data%",bio.location);
+	bio.picture = HTMLbioPic.replace("%data%",bio.picture);
+	bio.message = HTMLwelcomeMsg.replace("%data%",bio.message);
 
+	$("#header").prepend(bio.role);
+	$("#header").prepend(bio.name);
+	$("#topContacts").append(bio.mobile);
+	$("#topContacts").append(bio.email);
+	$("#topContacts").append(bio.github);
+	$("#topContacts").append(bio.location);
+	$("#header").append(bio.picture);
+	$("#header").append(bio.message);
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		for (var i = 0; i< bio.skills.length; i++) {
+		var formattedSkills = bio.skills[i];
+		formattedSkills = HTMLskills.replace("%data%",formattedSkills);
+		$("#skills").append(formattedSkills);
+		}
+	 }
 }
-bio.name = HTMLheaderName.replace("%data%",bio.name);
-// bio.role = HTMLheaderRole.replace("%data%",bio.role);
-// bio.mobile = HTMLmobile.replace("%data%",bio.mobile);
-// bio.email = HTMLemail.replace("%data%",bio.email);
-// bio.github = HTMLgithub.replace("%data%",bio.github);
-// bio.location = HTMLlocation.replace("%data%",bio.location);
-// bio.picture = HTMLbioPic.replace("%data%",bio.picture);
-// bio.message = HTMLwelcomeMsg.replace("%data%",bio.message);
 
-// $("#header").prepend(bio.role);
-$("#header").prepend(bio.name);
-// $("#topContacts").append(bio.mobile);
-// $("#topContacts").append(bio.email);
-// $("#topContacts").append(bio.github);
-// $("#topContacts").append(bio.location);
-// $("#header").append(bio.picture);
-// $("#header").append(bio.message);
-// $("#header").append(HTMLskillsStart);
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-	for (var i = 0; i< bio.skills.length; i++) {
-	var formattedSkills = bio.skills[i];
-	formattedSkills = HTMLskills.replace("%data%",formattedSkills);
-	$("#skills").append(formattedSkills);
-	}
- }
-
-
-for (var x = 0; x < work.experience.length; x++) {
+var displayWork = function()
+{
+	for (var x = 0; x < work.experience.length; x++) {
 	// replace the data
 	work.experience[x].start = HTMLworkStart.replace("%data%",work.experience[x].start);
 	work.experience[x].employer = HTMLworkEmployer.replace("%data%",work.experience[x].employer);
@@ -237,12 +236,16 @@ for (var x = 0; x < work.experience.length; x++) {
 	work.experience[x].location = HTMLworkLocation.replace("%data%",work.experience[x].location);
 	work.experience[x].description = HTMLworkDescription.replace("%data%",work.experience[x].description);
 	var formatedEmployerTitle = work.experience[x].employer + work.experience[x].title;
+
 	// append in the HTML
 	$("#workExperience").append(work.experience[x].start);
 	$(".work-entry:last").append(formatedEmployerTitle);
-	console.log(formatedEmployerTitle);
 	$("#workExperience").append(work.experience[x].dates);
 	$("#workExperience").append(work.experience[x].location);
 	$("#workExperience").append(work.experience[x].description);
-} 
+ } 
+}
+
+displayBio();
+displayWork();
 
