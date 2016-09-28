@@ -43,9 +43,9 @@ This is empty on purpose! Your code to build the resume will go here.
 
 
 // var work = {};
-// var education = {};
+// // var education = {};
 
-// // workExperience
+// // // workExperience
 // work["start"] = "February,2016";
 // work["employer"] = "The International Civil Aviation Organization";
 // work["title"] = "Statistical Data Analysis Intern";
@@ -227,43 +227,22 @@ if (bio.skills.length > 0) {
 	}
  }
 
-var x = 0;
-for (x in work.experience[x]) {
+
+for (var x = 0; x < work.experience.length; x++) {
 	// replace the data
 	work.experience[x].start = HTMLworkStart.replace("%data%",work.experience[x].start);
-	work.experience[x].employer = HTMLworkStart.replace("%data%",work.experience[x].employer);
-	work.experience[x].title= HTMLworkEmployer.replace("%data%",work.experience[x].title);
+	work.experience[x].employer = HTMLworkEmployer.replace("%data%",work.experience[x].employer);
+	work.experience[x].title= HTMLworkTitle.replace("%data%",work.experience[x].title);
 	work.experience[x].dates = HTMLworkDates.replace("%data%",work.experience[x].dates);
 	work.experience[x].location = HTMLworkLocation.replace("%data%",work.experience[x].location);
 	work.experience[x].description = HTMLworkDescription.replace("%data%",work.experience[x].description);
+	var formatedEmployerTitle = work.experience[x].employer + work.experience[x].title;
 	// append in the HTML
 	$("#workExperience").append(work.experience[x].start);
-	$("#workExperience").append(work.experience[x].employer);
-	$("#workExperience").append(work.experience[x].title);
+	$(".work-entry:last").append(formatedEmployerTitle);
+	console.log(formatedEmployerTitle);
 	$("#workExperience").append(work.experience[x].dates);
 	$("#workExperience").append(work.experience[x].location);
 	$("#workExperience").append(work.experience[x].description);
-
 } 
-// // workExperience
-// work["start"] = "February,2016";
-// work["employer"] = "The International Civil Aviation Organization";
-// work["title"] = "Statistical Data Analysis Intern";
-// work["dates"] = "February,2016-July,2016";
-// work["location"] = "Montreal, Canada";
-// work["description"] =   "Design and implement the fornt-end web components. Colsely worked with the back-end developers to optimize web layout";
 
-// work["start"] = HTMLworkStart.replace("%data%",work["start"]);
-// work["employer"] = HTMLworkEmployer.replace("%data%",work["employer"]);
-// work["title"] = HTMLworkTitle.replace("%data%",work["title"]);
-// work["dates"] = HTMLworkDates.replace("%data%",work["dates"]);
-// work["location"] = HTMLworkLocation.replace("%data%",work["location"]);
-// work["description"] = HTMLworkDescription.replace("%data%",work["description"]);
-
-
-// $("#workExperience").append(work["start"]);
-// $("#workExperience").append(work["employer"]);
-// $("#workExperience").append(work["title"]);
-// $("#workExperience").append(work["dates"]);
-// $("#workExperience").append(work["location"]);
-// $("#workExperience").append(work["description"]);
