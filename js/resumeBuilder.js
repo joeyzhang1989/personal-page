@@ -116,7 +116,7 @@ This is empty on purpose! Your code to build the resume will go here.
 var bio = {
 	"name" : "Chenglong Zhang",
 	"role" : "Web Developer",
-	"mobile" : "5144311188",
+	"mobile" : "514-431-1188",
 	"email" : "chenglongzhang931@gmail.com",
 	"github" : "github.com/joeyzhang1989",
 	"location" : "Montreal, Canada",
@@ -247,5 +247,14 @@ var displayWork = function()
 }
 
 displayBio();
+
 displayWork();
 
+function inName(name) {
+	name = name.trim().split(" ");
+	name[1] = name[1].toUpperCase();
+	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+	return name[0] + " " + name[1];
+}
+
+$("#main").append(internationalizeButton);

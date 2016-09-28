@@ -65,10 +65,12 @@ The Internationalize Names challenge found in the lesson Flow Control from JavaS
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
-    var iName = inName($name.text()) || function(){};
+    var iName = inName($name.text()) || function(){
+    };
     $name.html(iName);
   });
 });
+
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
