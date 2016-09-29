@@ -14,7 +14,7 @@ var bio = {
 	"picture" : "images/me.jpeg",
 	"message" : "Thank your for your time reading my resume",
 	"skills" : ["Web Development", "Programming", "HTML", "CSS", "JavaScript", "Java",
-			  "GruntJS", "Gulp.js" ]
+			  "GruntJS", "Gulp.js", "Node.js", "Agile Development", "C++", "Git", "Software Development"]
 }
 
 
@@ -36,7 +36,7 @@ var education = {
 		 "location": "ChangChun, China",
 		 "major": "Computer Science"
 	}
- ],		
+ ],
 	"onlinecourse": [
 	{
 		"classes": "Fornt-End Web developerment Nanodegree",
@@ -77,26 +77,26 @@ var projects = {
 		"title": "Udacity-Front-End Nanodegree",
 		"dates": "Sept,2016",
 		"description":"<br>•Communicated with the client for the requirement of the website<br>•Structured the layout of the website <br>•Implemented website using HTML 5, CSS3, JS for content and web structure and the bootstrap for responsive design<br>•Deploy the website and test the visibility and stability of the website compatibility on multiple devices" ,
-		"images":["images/Udacity-Front-End-400.png"] 
+		"images":["images/Udacity-Front-End-400.png"]
 	},
 	{
 		"start":" " ,
 		"title": "Tower Defense Game",
 		"dates": "Sept,2014",
 		"description":"•Used GitHub to communicate and monitor the development<br>•Applied and modified MVC structure <br>•Programmed and designed the Map function<br>•Constructed unit tests by exploiting the Junit frameworkAdopted design patterns (strategy, observer, singleton, etc.)",
-		"images":["images/tower-defense-400.png"] 
+		"images":["images/tower-defense-400.png"]
 	},
 	{
 		"start":" " ,
 		"title": "File transfer System",
 		"dates": "Sept,2014",
 		"description":"<br>•Integrated winsocket to pack the data to transfer files between two Internet terminals <br>•Simulated the real-time communication by considering the loss and delay of the packets<br>•Deployed TCP and UDP protocol in different versions of program<br>•Validated the performance and stability of program by transferring various size and types of files ",
-		"images":["images/file-transfer-program-400.png"] 
+		"images":["images/file-transfer-program-400.png"]
 	}
  ]
 }
 
-var displayBio = function () 
+var displayBio = function ()
 {
 	var formattedName = HTMLheaderName.replace("%data%",bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
@@ -143,7 +143,7 @@ var displayWork = function()
 	$(".work-entry:last").append(formattedDates);
 	$(".work-entry:last").append(formattedLocation);
 	$(".work-entry:last").append(formattedDescription);
- } 
+ }
 }
 
 projects.display = function () {
@@ -160,7 +160,7 @@ projects.display = function () {
 	$(".project-entry:last").append(formattedDates);
 	$(".project-entry:last").append(formattedDescription);
 	$(".project-entry:last").append(projects.project[x].images[0]);
- } 	
+ }
 }
 
 education.display = function () {
@@ -180,14 +180,14 @@ education.display = function () {
 	$(".education-entry:last").append(formattedDates);
 	$(".education-entry:last").append(formattedLocation);
 	$(".education-entry:last").append(formattedMajor);
- } 	
+ }
  	for (var x = 0; x < education.onlinecourse.length; x++) {
  	var formattedClasses = HTMLonlineClasses.replace("%data%",education.onlinecourse[x].classes);
 	var formattedTitle = HTMLonlineTitle.replace("%data%",education.onlinecourse[x].title);
 	var formattedSchool = HTMLonlineSchool.replace("%data%",education.onlinecourse[x].school);
 	var formattedDates = HTMLonlineDates.replace("%data%",education.onlinecourse[x].dates);
 	var formattedUrl = HTMLonlineURL.replace("%data%",education.onlinecourse[x].onlineUrl);
-	
+
 	var formattedTitleSchool = formattedTitle +  formattedSchool;
 	// append in the HTML
 	$("#education").append(formattedClasses);
