@@ -14,7 +14,7 @@ var bio = {
 	"picture" : "images/me.jpeg",
 	"message" : "Thank your for your time reading my resume",
 	"skills" : ["Web Development", "Programming", "HTML", "CSS", "JavaScript", "Java",
-			  "GruntJS", "Gulp.js", "Node.js", "Agile Development", "C++", "Git", "Software Development"]
+			  "GruntJS", "Gulp.js", "Node.js", "Agile Development", "C++", "Git", "Software Development","JQuery"]
 }
 
 
