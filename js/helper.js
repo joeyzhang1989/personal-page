@@ -117,7 +117,7 @@ function initializeMap() {
   For the map to be displayed, the googleMap var must be
   appended to #mapDiv in resumeBuilder.js.
   */
-  map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
+  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
   /*
@@ -147,7 +147,10 @@ function initializeMap() {
     work.experience.forEach(function(job){
       locations.push(job.location);
     });
+    for (x= 0; x < locations.length; x ++) {
+          console.log(locations[x]);
 
+    }
     return locations;
   }
 
