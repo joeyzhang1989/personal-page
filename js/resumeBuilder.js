@@ -2,49 +2,6 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
-// // education master
-// education.start = "Sept,2013";
-// education.name = "Concordia University";
-// education.degree = "Master of Engineering";
-// education.dates = "Sept,2013-June,2015";
-// education.location = "Montreal, Canada";
-// education.major = "Software Engineering";
-
-// education.start = HTMLschoolStart.replace("%data%",education.start);
-// education.name = HTMLschoolName.replace("%data%",education.name);
-// education.degree = HTMLschoolDegree.replace("%data%",education.degree);
-// education.dates = HTMLschoolDates.replace("%data%",education.dates);
-// education.location = HTMLschoolLocation.replace("%data%",education.location);
-// education.major = HTMLschoolMajor.replace("%data%",education.major);
-
-// $("#education").append(education.start);
-// $("#education").append(education.name);
-// $("#education").append(education.degree);
-// $("#education").append(education.dates);
-// $("#education").append(education.location);
-// $("#education").append(education.major);
-
-// // education bachelor
-// education.start = "Sept,2009";
-// education.name = "ChangChun Normal University";
-// education.degree = "Bachelor of Engineering";
-// education.dates = "Sept,2009-June,2013";
-// education.location = "ChangChun, China";
-// education.major = "Computer Science";
-
-// education.start = HTMLschoolStart.replace("%data%",education.start);
-// education.name = HTMLschoolName.replace("%data%",education.name);
-// education.degree = HTMLschoolDegree.replace("%data%",education.degree);
-// education.dates = HTMLschoolDates.replace("%data%",education.dates);
-// education.location = HTMLschoolLocation.replace("%data%",education.location);
-// education.major = HTMLschoolMajor.replace("%data%",education.major);
-
-// $("#education").append(education.start);
-// $("#education").append(education.name);
-// $("#education").append(education.degree);
-// $("#education").append(education.dates);
-// $("#education").append(education.location);
-// $("#education").append(education.major);
 
 
 var bio = {
@@ -62,7 +19,7 @@ var bio = {
 
 
 var education = {
-	"school": [
+	"schools": [
 	{
 		"start": "Sept,2013",
 		"name": "Concordia University",
@@ -82,9 +39,11 @@ var education = {
  ],		
 	"onlinecourse": [
 	{
-		"title": "Udacity Fornt-End Web developerment Nanodegree",
+		"classes": "Fornt-End Web developerment Nanodegree",
 		"school":"Udacity",
-		"dates": "2016"
+		"title": "Fornt-End Web developerment",
+		"dates": "2016",
+		"onlineUrl":"https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
 	}
   ]
 }
@@ -195,7 +154,6 @@ projects.display = function () {
 	projects.project[x].dates = HTMLprojectDates.replace("%data%",projects.project[x].dates);
 	projects.project[x].description = HTMLprojectDescription.replace("%data%",projects.project[x].description);
 	projects.project[x].images[0] = HTMLprojectImage.replace("%data%",projects.project[x].images[0]);
-	console.log(projects.project[x].images[x]);
 	// append in the HTML
 	$("#projects").append(projects.project[x].start);
 	$(".project-entry:last").append(projects.project[x].title);
@@ -205,11 +163,47 @@ projects.display = function () {
  } 	
 }
 
+education.display = function () {
+	for (var x = 0; x < education.schools.length; x++) {
+	// replace the data
+	education.schools[x].start = HTMLschoolStart.replace("%data%",education.schools[x].start);
+	education.schools[x].name = HTMLschoolName.replace("%data%",education.schools[x].name);
+	education.schools[x].degree = HTMLschoolDegree.replace("%data%",education.schools[x].degree);
+	education.schools[x].dates = HTMLschoolDates.replace("%data%",education.schools[x].dates);
+	education.schools[x].location = HTMLschoolLocation.replace("%data%",education.schools[x].location);
+	education.schools[x].major = HTMLschoolMajor.replace("%data%",education.schools[x].major);
+
+	// append in the HTML
+	$("#education").append(education.schools[x].start);
+	$(".education-entry:last").append(education.schools[x].name);
+	$(".education-entry:last").append(education.schools[x].degree);
+	$(".education-entry:last").append(education.schools[x].dates);
+	$(".education-entry:last").append(education.schools[x].location);
+	$(".education-entry:last").append(education.schools[x].major);
+ } 	
+ 	for (var x = 0; x < education.onlinecourse.length; x++) {
+ 	education.onlinecourse[x].classes = HTMLonlineClasses.replace("%data%",education.onlinecourse[x].classes);
+	education.onlinecourse[x].title = HTMLonlineTitle.replace("%data%",education.onlinecourse[x].title);
+	education.onlinecourse[x].school = HTMLonlineSchool.replace("%data%",education.onlinecourse[x].school);
+	education.onlinecourse[x].dates = HTMLonlineDates.replace("%data%",education.onlinecourse[x].dates);
+	education.onlinecourse[x].onlineUrl = HTMLonlineURL.replace("%data%",education.onlinecourse[x].onlineUrl);
+	
+	var formattedTitleSchool = education.onlinecourse[x].title +  education.onlinecourse[x].school;
+	// append in the HTML
+	$("#education").append(education.onlinecourse[x].classes);
+	$("#education").append(formattedTitleSchool);
+	$("#education").append(education.onlinecourse[x].dates);
+	$("#education").append(education.onlinecourse[x].onlineUrl);
+ }
+}
+
 displayBio();
 
 displayWork();
 
 projects.display();
+
+education.display();
 
 function inName(name) {
 	name = name.trim().split(" ");
@@ -219,4 +213,4 @@ function inName(name) {
 }
 
 $("#main").append(internationalizeButton);
-
+$("#mapDiv").append(googleMap);
