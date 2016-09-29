@@ -131,6 +131,10 @@ a {
   background-color: #484848;
 }
 
+#projects {
+  padding: 2.5% 5%;
+}
+
 .flex-box {
   display: -webkit-flex;
   display: flex;
