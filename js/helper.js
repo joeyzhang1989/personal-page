@@ -33,7 +33,7 @@ var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
-var HTMLschoolName = '<a href="#">%data%';
+var HTMLschoolName = '<a href="#" target="_black">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
@@ -117,7 +117,7 @@ function initializeMap() {
         var locations = [];
 
         // adds the single location property from bio to the locations array
-        locations.push(bio.location);
+        locations.push(bio.contacts.location);
 
         // iterates through school locations and appends each location to
         // the locations array. Note that forEach is used for array iteration
@@ -131,10 +131,10 @@ function initializeMap() {
         // the locations array. Note that forEach is used for array iteration
         // as described in the Udacity FEND Style Guide:
         // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-        work.experience.forEach(function(job) {
+        work.jobs.forEach(function(job) {
             locations.push(job.location);
         });
-        
+
         return locations;
     }
 
@@ -169,6 +169,7 @@ function initializeMap() {
         google.maps.event.addListener(marker, 'click', function() {
             map.setZoom(5);
             map.setCenter(marker.getPosition());
+            infoWindow.open(map, marker);
         });
 
         // this is where the pin actually gets added to the map.
