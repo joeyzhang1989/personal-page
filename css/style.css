@@ -26,7 +26,7 @@ h6 {
 
 h1 {
     font-size: 40px;
-    color: #f5a623;
+    color: #4bb51b;
     line-height: 48px;
     display: inline;
 }
@@ -89,7 +89,7 @@ a {
 }
 
 #skills-h3 {
-    color: #f5ae23;
+    color: #4bb51b;
     display: none;
 }
 
@@ -98,7 +98,7 @@ a {
 }
 
 .orange-text {
-    color: #f5ae23;
+    color: #4bb5dd;
 }
 
 .white-text {
@@ -113,12 +113,12 @@ a {
 }
 
 .dark-gray {
-    background-color: #4a4a4a;
+    background-color: #3c4d69;
 }
 
 /* TODO: Replace with image later */
 #header {
-    background-color: #484848;
+    background-color: #3c4d69;
 }
 
 #projects {
