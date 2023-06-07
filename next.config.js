@@ -1,13 +1,6 @@
 /** @type {import('next').NextConfig} */
-const isGithubActions = process.env.GITHUB_ACTIONS || false;
+const isProd = process.env.NODE_ENV === "production";
 
-let assetPrefix = "./";
-
-if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, "");
-
-  assetPrefix = `/${repo}/`;
-}
 const nextConfig = {
   // output: "export",
   /**
@@ -18,6 +11,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: assetPrefix,
+  assetPrefix: isProd ? "/joeyzhang1989.github.io/" : "",
 };
 module.exports = nextConfig;
