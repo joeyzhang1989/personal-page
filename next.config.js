@@ -11,7 +11,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: isProd ? "/joeyzhang1989.github.io/" : "",
-  basePath: isProd ? "/joeyzhang1989.github.io" : ""
+  assetPrefix: isProd ? "/personal-page/" : "",
+  basePath: isProd ? "/personal-page" : ""
 };
 module.exports = nextConfig;
