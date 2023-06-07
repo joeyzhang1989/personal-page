@@ -21,11 +21,10 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "npm"
-          cache-dependency-path: ./personal-page/package-lock.json
+          cache-dependency-path: ./package-lock.json
 
 
       - name: Build
-        working-directory: ./personal-page
         run: |
           npm i
           npm run build
@@ -35,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./personal-page/out
+          publish_dir: ./out
