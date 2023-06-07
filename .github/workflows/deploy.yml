@@ -20,6 +20,8 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        run: | 
+          ls
         with:
           node-version: "lts/*"
           cache: "npm"
