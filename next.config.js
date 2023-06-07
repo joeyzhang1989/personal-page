@@ -12,5 +12,6 @@ const nextConfig = {
     unoptimized: true,
   },
   assetPrefix: isProd ? "/joeyzhang1989.github.io/" : "",
+  basePath: isProd ? "/joeyzhang1989.github.io" : ""
 };
 module.exports = nextConfig;
