@@ -11,7 +11,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
   assetPrefix: isProd ? "/joeyzhang1989.github.io/" : "",
 };
 module.exports = nextConfig;

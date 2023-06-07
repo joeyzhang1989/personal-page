@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "author": {"name": "chenglong" , "email": "chenglongzhang931@gmail.com"},
   "private": true,
+  "homepage": "https://joeyzhang1989.github.io/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
